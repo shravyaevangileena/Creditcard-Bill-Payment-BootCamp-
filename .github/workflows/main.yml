@@ -16,6 +16,6 @@ jobs:
         - name: Azure Pipelines Action
           uses: Azure/pipelines@v1
           with:
-            azure-devops-project-url: https://dev.azure.com/giddi-shravyagiddi-shravya/Demo
-            azure-pipeline-name: 'Demo-Maven-CI'
+            azure-devops-project-url: https://dev.azure.com/giddi-shravyagiddi-shravya/Test Demo
+            azure-pipeline-name: 'Test Demo-CI (1)'
             azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
