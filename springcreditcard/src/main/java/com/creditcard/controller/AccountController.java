@@ -30,6 +30,8 @@ public class AccountController {
 		@Autowired
 		AccountService accountserviceimp;
 		
+		String details = "Account Not Found !";
+		
 		
 		@PostMapping(value="/addaccount",consumes = "application/json")
 		public String addAccount(@RequestBody Account account ) {
@@ -41,7 +43,7 @@ public class AccountController {
 		@DeleteMapping("/account/delete/{id}")
 		public String removeAccount(long id) {
 			if(accountserviceimp.getAccount(id)==null) {
-				System.out.println(" Account Not Found !");
+				System.out.println(details);
 				throw new AccountNotFoundException();
 			}
 			accountserviceimp.removeAccount(id);
@@ -51,7 +53,7 @@ public class AccountController {
 		@PutMapping(value="/account/update/{id}",consumes = "application/json")
 		public String  updateAccount(@PathVariable("id") long id, @RequestBody Account account) {
 			if(accountserviceimp.getAccount(id)==null) {
-				System.out.println(" Account Not Found !");
+				System.out.println(details);
 				throw new AccountNotFoundException();
 			}
 			accountserviceimp.updateAccount(id, account);
@@ -62,7 +64,7 @@ public class AccountController {
 		@GetMapping("/account/{id}")
 		public Account getAccount(@PathVariable("id") long id) {
 			if(accountserviceimp.getAccount(id)==null) {
-				System.out.println(" Account Not Found !");
+				System.out.println(details);
 				throw new AccountNotFoundException();
 			}
 			return accountserviceimp.getAccount(id);
